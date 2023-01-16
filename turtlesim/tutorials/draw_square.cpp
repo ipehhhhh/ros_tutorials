@@ -57,7 +57,7 @@ void stopForward(ros::Publisher twist_pub)
     g_state = TURN;
     g_goal.x = g_pose->x;
     g_goal.y = g_pose->y;
-    g_goal.theta = fmod(g_pose->theta + PI/2.0, 2*PI);
+    g_goal.theta = fmod(g_pose->theta - PI/2.0, 2*PI);
     ROS_INFO("Goal theta: %f", g_goal.theta);
     // wrap g_goal.theta to [-pi, pi)
     if (g_goal.theta >= PI) g_goal.theta -= 2 * PI;
